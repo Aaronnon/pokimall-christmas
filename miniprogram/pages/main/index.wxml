@@ -1,0 +1,47 @@
+<!--miniprogram/pages/index.wxml-->
+<view class="container-main">
+  <view class="pic-container">
+
+    <image
+      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/a.png?sign=347813feab94cb3ff4ac446debfc0166&t=1607707263">
+    </image>
+    <image
+      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/b.png?sign=88f8b26b92c7905c7c506be3b866cb5c&t=1607707292">
+    </image>
+    <image
+      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/c.png?sign=721522ac24d8fd05cf545c92c1601182&t=1607707297">
+    </image>
+
+  </view>
+  <view class="arrow-container">
+    <image class="arrow"
+      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/arrow.png?sign=ac082de1c65195d85096ceda5de8ae1f&t=1607709606">
+    </image>
+
+  </view>
+  <view class="btn-container">
+
+    <image bind:tap="onClickRules"
+      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules-btn.png?sign=bb5576b6d04e57c3e5f7a48258125f22&t=1607708935">
+    </image>
+    <image
+      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/start-btn.png?sign=2da76960035adf2b895042203e4f2e02&t=1607708947">
+    </image>
+    <image
+      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/list-btn.png?sign=f834e8756ec8fd3192ca9c3cb5c8ce6c&t=1607708964">
+    </image>
+
+  </view>
+  <l-popup show="{{click}}">
+
+    <view class="rules">
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules.png?sign=18f849511dce8b4d72ba8e58a6479132&t=1607717183">
+      </image>
+      <view bind:tap="onClickClose" class="closeLock"></view>
+    </view>
+
+  </l-popup>
+
+
+</view>
