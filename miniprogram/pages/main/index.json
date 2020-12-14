@@ -1,9 +1,13 @@
 {
   "usingComponents": {
     "l-popup":"/miniprogram_npm/lin-ui/popup/index",
+<<<<<<< HEAD
     "l-progress":"/miniprogram_npm/lin-ui/progress/index",
     "l-textarea":"/miniprogram_npm/lin-ui/textarea/index",
     "l-input":"/miniprogram_npm/lin-ui/input/index"
+=======
+    "l-progress":"/miniprogram_npm/lin-ui/progress/index"
+>>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
 
   }
 }

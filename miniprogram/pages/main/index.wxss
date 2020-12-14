@@ -6,6 +6,7 @@ page {
   background-size: 100% 100%;
 }
 
+<<<<<<< HEAD
 
 
 .snow-container{
@@ -1326,6 +1327,8 @@ page {
   }
 }
 
+=======
+>>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
 
 
 
@@ -1337,15 +1340,24 @@ page {
   /* align-items: center; */
 }
 
+<<<<<<< HEAD
 .progressLine {
   position: absolute !important;
+=======
+.progressLine{
+  position: absolute !important; 
+>>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
   top: 130rpx;
   width: 100% !important;
   z-index: 99;
 }
 
 .pic-container {
+<<<<<<< HEAD
   padding-top: 140rpx;
+=======
+  padding-top: 160rpx;
+>>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
   position: relative;
   width: 100%;
   height: 100%;
@@ -1358,9 +1370,12 @@ page {
   position: absolute;
   width: 212rpx;
   height: 1054rpx;
+<<<<<<< HEAD
   transform-origin: top;
   -webkit-animation: upAnimation 7s ease-in-out infinite;
   animation: upAnimation 7s ease-in-out infinite;
+=======
+>>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
 }
 
 .pic-container image:nth-child(2) {
@@ -1380,9 +1395,15 @@ page {
   width: 212rpx;
   height: 672rpx;
   transform-origin: top;
+<<<<<<< HEAD
   -webkit-animation: upAnimation 7s ease-in-out infinite;
   animation: upAnimation 7s ease-in-out infinite;
 
+=======
+  -webkit-animation: upAnimation 5s ease-in-out infinite ;
+  animation: upAnimation 5s ease-in-out infinite ;
+  
+>>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
 }
 
 @keyframes upAnimation {
@@ -1479,7 +1500,11 @@ page {
   }
 }
 
+<<<<<<< HEAD
 .bottom-container {
+=======
+.bottom-container{
+>>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
   position: relative;
   width: 100%;
   height: 100%;
