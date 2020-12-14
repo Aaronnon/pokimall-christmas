@@ -7,14 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
+
     clickRules: false,
     clickRewards: false,
     clickContent: false,
     clickDone: false
-=======
-    clickRules:false,
->>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
   },
 
   /**
@@ -111,26 +108,20 @@ Page({
     console.log(tmp);
     
     this.setData({
-<<<<<<< HEAD
       clickContent: false,
       clickDone: true
-=======
-      clickRules:true
->>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
+
     })
 
   },
 
   onClickClose() {
     this.setData({
-<<<<<<< HEAD
       clickRules: false,
       clickRewards: false,
       clickContent: false,
       clickDone: false
-=======
-      clickRules:false
->>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
+
     })
   }
 

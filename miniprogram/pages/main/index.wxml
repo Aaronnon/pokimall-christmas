@@ -25,8 +25,6 @@
 
     </view>
     <view class="btn-container">
-<<<<<<< HEAD
-
       <image bind:tap="onClickRules"
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules-btn.png?sign=bb5576b6d04e57c3e5f7a48258125f22&t=1607708935">
       </image>
@@ -36,20 +34,6 @@
       <image bind:tap="onClickRewards"
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/list-btn.png?sign=f834e8756ec8fd3192ca9c3cb5c8ce6c&t=1607708964">
       </image>
-
-=======
-
-      <image bind:tap="onClickRules"
-        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules-btn.png?sign=bb5576b6d04e57c3e5f7a48258125f22&t=1607708935">
-      </image>
-      <image
-        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/start-btn.png?sign=2da76960035adf2b895042203e4f2e02&t=1607708947">
-      </image>
-      <image
-        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/list-btn.png?sign=f834e8756ec8fd3192ca9c3cb5c8ce6c&t=1607708964">
-      </image>
-
->>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
     </view>
   </view>
 
@@ -61,7 +45,6 @@
       </image>
       <view bind:tap="onClickClose" class="closeLock"></view>
     </view>
-<<<<<<< HEAD
   </l-popup>
 
   <l-popup show="{{clickRewards}}">
@@ -95,16 +78,6 @@
       <view class="phone-area">
         <l-input placeholder="请输入电话号码" required="{{true}}" showRow="{{false}}" />
       </view>
-=======
-  </l-popup>
-
-  <l-popup show="{{clickReward}}">
-    <view class="rules">
-      <image
-        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/list-detail.png?sign=d1d45928acaf7a16fc187d62a026ed78&t=1607759527">
-      </image>
-      <view bind:tap="onClickClose" class="closeLock"></view>
->>>>>>> 4602e6ab22f2042c3f2bdfbc07115af3f0d0094f
     </view>
   </l-popup>
 
