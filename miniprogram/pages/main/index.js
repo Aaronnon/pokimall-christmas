@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    click:false,
+    clickRules:false,
   },
 
   /**
@@ -67,12 +67,12 @@ Page({
 
   onClickRules(){
     this.setData({
-      click:true
+      clickRules:true
     })
   },
   onClickClose(){
     this.setData({
-      click:false
+      clickRules:false
     })
   }
 

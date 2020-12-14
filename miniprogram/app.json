@@ -3,10 +3,9 @@
     "pages/main/index"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#00863D",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "Poki Mall"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

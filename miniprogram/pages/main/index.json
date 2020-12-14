@@ -1,7 +1,7 @@
 {
   "usingComponents": {
-    "l-popup":"/miniprogram_npm/lin-ui/popup/index"
-  },
-  "navigationBarBackgroundColor": "#00863D",
-    "navigationStyle": "custom"
+    "l-popup":"/miniprogram_npm/lin-ui/popup/index",
+    "l-progress":"/miniprogram_npm/lin-ui/progress/index"
+
+  }
 }

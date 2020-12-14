@@ -6,29 +6,24 @@ page {
   background-size: 100% 100%;
 }
 
-.container {
-  width: 100%;
-  height: 100vh;
-}
-
-.navigation-bar-image {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 
 .container-main {
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+}
+
+.progressLine{
+  position: absolute !important; 
+  top: 130rpx;
+  width: 100% !important;
+  z-index: 99;
 }
 
 .pic-container {
-  margin-top: 160rpx;
+  padding-top: 160rpx;
   position: relative;
   width: 100%;
   height: 100%;
@@ -40,7 +35,7 @@ page {
   left: 108rpx;
   position: absolute;
   width: 212rpx;
-  height: 954rpx;
+  height: 1054rpx;
 }
 
 .pic-container image:nth-child(2) {
@@ -56,7 +51,7 @@ page {
   right: 40rpx;
   width: 212rpx;
   height: 672rpx;
-  transform-origin: 0rpx 0rpx;
+  transform-origin: top;
   -webkit-animation: upAnimation 5s ease-in-out infinite ;
   animation: upAnimation 5s ease-in-out infinite ;
   
@@ -152,6 +147,16 @@ page {
   100%{
     transform: rotate(-40deg)
   }
+}
+
+.bottom-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .arrow-container {
