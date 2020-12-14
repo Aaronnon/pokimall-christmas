@@ -7,15 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    click:false,
+    clickRules: false,
+    clickRewards: false,
+    clickContent: false,
+    clickDone: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  },
-  
+  onLoad: function (options) {},
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -62,17 +64,61 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  },
+  onShareAppMessage: function () {},
 
-  onClickRules(){
+  onClickRules() {
     this.setData({
-      click:true
+      clickRules: true
     })
   },
-  onClickClose(){
+
+  onClickRewards() {
     this.setData({
-      click:false
+      clickRewards: true
+    })
+  },
+  onClickContent() {
+    this.setData({
+      clickContent: true
+    })
+  },
+  clickValue(e) {
+    if (e.detail.value !== '') {
+      console.log(e.detail.value);
+    }
+
+  },
+
+  confirmContert() {
+
+    var str = "abcdefghijklmnopqrstuvwxyz0123456789";
+    // var arr = [...str]
+    var tmp = [];
+    var random;
+    for (var i = 0; i < 8; i++) {
+      random = Math.floor(Math.random() * (str.length));
+      if (tmp.indexOf(str[random]) === -1) {
+        tmp.push(str[random])
+      } else {
+        i--;
+      }
+    }
+    // tmp.toString();
+    console.log(tmp);
+    
+    this.setData({
+      clickContent: false,
+      clickDone: true
+    })
+
+  },
+
+  onClickClose() {
+    this.setData({
+      clickRules: false,
+      clickRewards: false,
+      clickContent: false,
+      clickDone: false
     })
   }
 

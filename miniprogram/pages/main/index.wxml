@@ -1,6 +1,9 @@
 <!--miniprogram/pages/index.wxml-->
 <view class="container-main">
+
+  <l-progress l-class="progressLine" percent="20" stroke-width='30' border-radius='16' active-color="red"></l-progress>
   <view class="pic-container">
+
 
     <image
       src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/a.png?sign=347813feab94cb3ff4ac446debfc0166&t=1607707263">
@@ -13,35 +16,173 @@
     </image>
 
   </view>
-  <view class="arrow-container">
-    <image class="arrow"
-      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/arrow.png?sign=ac082de1c65195d85096ceda5de8ae1f&t=1607709606">
-    </image>
 
+  <view class="bottom-container">
+    <view class="arrow-container">
+      <image class="arrow"
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/arrow.png?sign=ac082de1c65195d85096ceda5de8ae1f&t=1607709606">
+      </image>
+
+    </view>
+    <view class="btn-container">
+
+      <image bind:tap="onClickRules"
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules-btn.png?sign=bb5576b6d04e57c3e5f7a48258125f22&t=1607708935">
+      </image>
+      <image bind:tap="onClickContent"
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/start-btn.png?sign=2da76960035adf2b895042203e4f2e02&t=1607708947">
+      </image>
+      <image bind:tap="onClickRewards"
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/list-btn.png?sign=f834e8756ec8fd3192ca9c3cb5c8ce6c&t=1607708964">
+      </image>
+
+    </view>
   </view>
-  <view class="btn-container">
 
-    <image bind:tap="onClickRules"
-      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules-btn.png?sign=bb5576b6d04e57c3e5f7a48258125f22&t=1607708935">
-    </image>
-    <image
-      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/start-btn.png?sign=2da76960035adf2b895042203e4f2e02&t=1607708947">
-    </image>
-    <image
-      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/list-btn.png?sign=f834e8756ec8fd3192ca9c3cb5c8ce6c&t=1607708964">
-    </image>
 
-  </view>
-  <l-popup show="{{click}}">
-
+  <l-popup show="{{clickRules}}">
     <view class="rules">
       <image
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules.png?sign=18f849511dce8b4d72ba8e58a6479132&t=1607717183">
       </image>
       <view bind:tap="onClickClose" class="closeLock"></view>
     </view>
+  </l-popup>
+
+  <l-popup show="{{clickRewards}}">
+    <view class="rewards">
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards-list.png?sign=ddcde5c8d821006138b1e7e50e8a7db8&t=1607967394">
+      </image>
+      <view bind:tap="onClickClose" class="closeLock"></view>
+    </view>
+  </l-popup>
+
+  <!-- <l-popup show="{{clickContent}}"> -->
+  <l-popup show="{{clickContent}}">
+    <view class="content">
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/content.png?sign=0288fd8f84e1812f5d209bd56f7b79ea&t=1607969649">
+      </image>
+      <view class="done-btn" bind:tap="confirmContert">
+        <image
+          src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/done-btn.png?sign=c1b14bbf677750f3d9c8fbd7607dad8a&t=1607973829">
+        </image>
+      </view>
+      <view bind:tap="onClickClose" class="closeLock"></view>
+      <view class="text-area">
+        <l-textarea l-class="l-text-area" l-inner-class="l-text" border="{{false}}" placeholder="说说你的愿望吧..." bind:linblur="clickValue"
+          fixed="{{true}}" maxlength="40"></l-textarea>
+      </view>
+      <view class="wechat-area">
+        <l-input  placeholder="请输入微信号" required="{{true}}" showRow="{{false}}" />
+      </view>
+      <view class="phone-area">
+        <l-input placeholder="请输入电话号码" required="{{true}}" showRow="{{false}}" />
+      </view>
+    </view>
+  </l-popup>
+
+  <l-popup show="{{clickDone}}">
+    <view class="done-img">
+      <image 
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/success.png?sign=e6120b87bbed1fe2369d47eb83be52df&t=1607979341">
+      </image>
+      <view bind:tap="onClickClose" class="closeLock"></view>
+    </view>
 
   </l-popup>
 
+  <view class="snow-container">
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
+    <div class="snow"></div>
 
+  </view>
 </view>
