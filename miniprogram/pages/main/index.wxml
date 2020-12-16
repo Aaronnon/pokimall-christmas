@@ -2,18 +2,24 @@
 
 <view class="container-main">
 
-  <l-progress l-class="progressLine" show-info="{{true}}" percent="{{progressPercent}}" stroke-width='30'
-    border-radius='16' active-color="red"></l-progress>
+
+  <view class="progressLine cu-progress round striped active">
+    <view class="bg-red" style="width:{{progressPercent}}%;">{{progressPercent}}%</view>
+  </view>
+  <view class="exp-container">
+    <text>*愿望被实现的几率，取决于用户分享次数而堆积的经验值*</text>
+  </view>
+
   <view class="pic-container">
 
 
-    <image
+    <image style="animation-name:{{upAnimation}}"
       src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/a.png?sign=347813feab94cb3ff4ac446debfc0166&t=1607707263">
     </image>
-    <image
+    <image style="animation-name:{{upAnimation1}}"
       src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/b.png?sign=88f8b26b92c7905c7c506be3b866cb5c&t=1607707292">
     </image>
-    <image
+    <image style="animation-name:{{upAnimation2}}"
       src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/c.png?sign=721522ac24d8fd05cf545c92c1601182&t=1607707297">
     </image>
 
@@ -57,11 +63,20 @@
       <scroll-view class="wish-text" scroll-y="true">
         {{wish}}
       </scroll-view>
+      <view class="progressLine cu-progress round striped active">
+        <view class="bg-red" style="width:{{progressPercent}}%;">{{progressPercent}}%</view>
+      </view>
+
       <image src="{{rewardsPageImg}}">
       </image>
       <view bind:tap="onClickCloseRewards" class="closeLock"></view>
-      <view class="tag-class">
-        <l-tag plain="{{true}}" size="mini"  font-color="red">{{tag}}</l-tag>
+      <text user-select="true">{{tag}}</text>
+      <view class="contact-container">
+        <image
+          src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/contact.png?sign=90aed036522163e10b1781bed9967d08&t=1608135729">
+        </image>
+        <button plain="none" open-type="contact"></button>
+
       </view>
     </view>
   </l-popup>
@@ -90,11 +105,25 @@
   </l-popup>
   <l-popup show="{{clickContentDone}}">
     <view class="fail-wish">
-      <image
-        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/fail.png?sign=a3a737730f7fb414e7abba99716d002c&t=1608077845">
+      <image src="{{contentsDonePageImg}}">
       </image>
       <view bind:tap="onClickCloseContentDone" class="closeLock"></view>
+      <view class="share-btn">
+        <image
+          src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/share-btn.png?sign=a4133faf945052e299a9dc1256d70568&t=1608155027">
+        </image>
+        <button plain="none" style="border:none" open-type="share" bind:tap="onShare"></button>
+      </view>
+    </view>
+  </l-popup>
 
+  <l-popup show="{{clickShare}}">
+    <view class="share-info">
+      <image src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/share.png?sign=3418c3256c3b9b2b4452f3bcad68173a&t=1608157824"></image>
+      <view bind:tap="onClickCloseShare" class="closeLock"></view>
+      <view class="progressLine cu-progress round striped active">
+        <view class="bg-red" style="width:{{progressPercent}}%;">{{progressPercent}}%</view>
+      </view>
     </view>
   </l-popup>
 
@@ -105,7 +134,7 @@
       </image>
       <view bind:tap="onClickCloseDone" class="closeLock"></view>
       <view class="tag-class">
-        <l-tag plain="{{true}}"  font-color="red">{{tag}}</l-tag>
+        <text user-select="true" font-color="red">{{tag}}</text>
       </view>
     </view>
   </l-popup>

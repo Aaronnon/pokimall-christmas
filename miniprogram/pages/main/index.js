@@ -11,23 +11,42 @@ Page({
   data: {
     rulesPageImg: '',
     rewardsPageImg: '',
+    contentsDonePageImg: '',
     clickRules: false,
     clickRewards: false,
     clickContent: false,
     clickContentDone: false,
     clickDone: false,
+    clickShare:false,
     progressPercent: 0,
     status: false,
     wish: '',
     weChat: '',
     phone: '',
     tag: '',
+    upAnimation:'',
+    upAnimation1:'',
+    upAnimation2:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  SetActive(e) {
+    this.setData({
+      active: e.detail.value
+    })
+  },
   onLoad: function (options) {
+    let that = this;
+    setTimeout(function () {
+      that.setData({
+        loading: true,
+        upAnimation:'upAnimation',
+        upAnimation1:'upAnimation1',
+        upAnimation2:'upAnimation2'
+      })
+    }, 500)
     wx.downloadFile({
       url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules.png?sign=18f849511dce8b4d72ba8e58a6479132&t=1607717183',
       success: function (res) {
@@ -67,6 +86,21 @@ Page({
             tempFilePath: res.tempFilePath,
             success(res) {
               wx.setStorageSync('contents_preview', res.savedFilePath)
+            }
+          })
+        }
+      }
+    })
+
+    wx.downloadFile({
+      url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/fail.png?sign=a3a737730f7fb414e7abba99716d002c&t=1608077845',
+      success: function (res) {
+        if (res.statusCode === 200) {
+          const fs = wx.getFileSystemManager()
+          fs.saveFile({
+            tempFilePath: res.tempFilePath,
+            success(res) {
+              wx.setStorageSync('contents_done_preview', res.savedFilePath)
             }
           })
         }
@@ -122,23 +156,30 @@ Page({
   onUnload: function () {
 
   },
+  onShare(){
+    this.setData({
+      clickContentDone:false,
+      clickShare:true
+    })
+  },
 
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    const newProgress = this.data.progressPercent + 0.1
+    const newProgress = this.data.progressPercent + Number(0.1)
     const newProgressStr = newProgress.toString()
     const index = newProgressStr.indexOf('.')
-    const result = Number(newProgressStr.slice(0, index + 2))
+    const result = Number(newProgressStr.slice(0, index + 3))
 
+    const result1 = Number(result.toFixed(1))
     this.setData({
-      progressPercent: result
+      progressPercent: result1
     })
     db.collection('users').doc(app.userInfo._id).update({
       data: {
-        _percent: result
+        _percent: result1
       }
     })
   },
@@ -167,8 +208,6 @@ Page({
     })
   },
 
-
-
   onClickContent() {
 
     const path = wx.getStorageSync('contents_preview')
@@ -177,10 +216,16 @@ Page({
         contentsPageImg: path
       })
     }
-    if (this.data.wish.length > 0) {
+    const path1 = wx.getStorageSync('contents_done_preview')
+    if (path1 != null) {
+      this.setData({
+        contentsDonePageImg: path1
+      })
+    }
+
+    if (this.data.weChat !== '') {
       this.setData({
         clickContentDone: true
-
       })
     } else {
       this.setData({
@@ -218,39 +263,44 @@ Page({
   },
 
   confirmContert() {
-
-
-    const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    // var arr = [...str]
-    const tmp = [];
-    var random;
-    var tmpJoin = ''
-    for (var i = 0; i < 8; i++) {
-      random = Math.floor(Math.random() * (str.length));
-      if (tmp.indexOf(str[random]) === -1) {
-        tmp.push(str[random])
-      } else {
-        i--;
+    if (this.data.weChat != '') {
+      const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      // var arr = [...str]
+      const tmp = [];
+      var random;
+      var tmpJoin = ''
+      for (var i = 0; i < 8; i++) {
+        random = Math.floor(Math.random() * (str.length));
+        if (tmp.indexOf(str[random]) === -1) {
+          tmp.push(str[random])
+        } else {
+          i--;
+        }
       }
+      tmpJoin = tmp.join('')
+
+      db.collection('users').doc(app.userInfo._id).update({
+        data: {
+          _wishRound: 0,
+          _tag: tmpJoin,
+          _phone: this.data.phone,
+          _weChat: this.data.weChat,
+          _wish: this.data.wish
+        }
+      })
+      this.setData({
+        clickContent: false,
+        clickDone: true,
+        tag: tmpJoin
+      })
+
     }
-    tmpJoin = tmp.join('')
 
-
-    db.collection('users').doc(app.userInfo._id).update({
-      data: {
-        _wishRound: 0,
-        _tag: tmpJoin,
-        _phone: this.data.phone,
-        _weChat: this.data.weChat,
-        _wish: this.data.wish
-      }
-    })
+  },
+  onClickCloseShare(){
     this.setData({
-      clickContent: false,
-      clickDone: true,
-      tag: tmpJoin
+      clickShare:false
     })
-
   },
 
   onClickCloseRules() {
