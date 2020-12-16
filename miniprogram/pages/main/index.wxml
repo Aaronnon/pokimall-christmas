@@ -46,50 +46,45 @@
 
   <l-popup show="{{clickRules}}">
     <view class="rules">
-      <image
-        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules.png?sign=18f849511dce8b4d72ba8e58a6479132&t=1607717183">
+      <image src="{{rulesPageImg}}">
       </image>
-      <view bind:tap="onClickClose" class="closeLock"></view>
+      <view bind:tap="onClickCloseRules" class="closeLock"></view>
     </view>
   </l-popup>
 
   <l-popup show="{{clickRewards}}">
     <view class="rewards">
-      <image
-        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards-list.png?sign=ddcde5c8d821006138b1e7e50e8a7db8&t=1607967394">
+      <scroll-view class="wish-text" scroll-y="true">
+        {{wish}}
+      </scroll-view>
+      <image src="{{rewardsPageImg}}">
       </image>
-      <view bind:tap="onClickClose" class="closeLock"></view>
-
-      <view class="notice-container">
-        <l-notice-bar l-class="notice-bar-content" show="{{true}}" type="roll">{{wish}}
-        </l-notice-bar>
+      <view bind:tap="onClickCloseRewards" class="closeLock"></view>
+      <view class="tag-class">
+        <l-tag plain="{{true}}" size="mini"  font-color="red">{{tag}}</l-tag>
       </view>
-
     </view>
   </l-popup>
 
   <l-popup show="{{clickContent}}">
     <view class="content">
-      <image
-        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/content.png?sign=0288fd8f84e1812f5d209bd56f7b79ea&t=1607969649">
+      <image src="{{contentsPageImg}}">
       </image>
       <view class="done-btn" bind:tap="confirmContert">
         <image
           src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/done-btn.png?sign=c1b14bbf677750f3d9c8fbd7607dad8a&t=1607973829">
         </image>
       </view>
-      <view bind:tap="onClickClose" class="closeLock"></view>
+      <view bind:tap="onClickCloseContent" class="closeLock"></view>
       <view class="text-area">
         <l-textarea l-class="l-text-area" l-inner-class="l-text" border="{{false}}" placeholder="说说你的愿望吧..."
-          bind:linblur="clickValue" fixed="{{true}}" value="{{wish}}" maxlength="40"></l-textarea>
+          bind:linblur="clickValue" fixed="{{true}}" maxlength="40"></l-textarea>
       </view>
       <view class="wechat-area">
-        <l-input placeholder="请输入微信号" required="{{true}}" value="{{weChat}}" showRow="{{false}}"
-          bind:linblur="clickWechat" />
+        <l-input placeholder="请输入微信号" required="{{true}}" showRow="{{false}}" bind:linblur="clickWechat" />
       </view>
       <view class="phone-area">
-        <l-input placeholder="请输入电话号码" required="{{true}}" value="{{phone}}" showRow="{{false}}"
-          bind:linblur="clickPhone" />
+        <l-input placeholder="请输入电话号码" required="{{true}}" showRow="{{false}}" bind:linblur="clickPhone" />
       </view>
     </view>
   </l-popup>
@@ -98,7 +93,7 @@
       <image
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/fail.png?sign=a3a737730f7fb414e7abba99716d002c&t=1608077845">
       </image>
-      <view bind:tap="onClickClose" class="closeLock"></view>
+      <view bind:tap="onClickCloseContentDone" class="closeLock"></view>
 
     </view>
   </l-popup>
@@ -108,9 +103,9 @@
       <image
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/success.png?sign=e6120b87bbed1fe2369d47eb83be52df&t=1607979341">
       </image>
-      <view bind:tap="onClickClose" class="closeLock"></view>
+      <view bind:tap="onClickCloseDone" class="closeLock"></view>
       <view class="tag-class">
-        <l-tag plain="{{true}}" select="{{true}}" font-color="red">{{tag}}</l-tag>
+        <l-tag plain="{{true}}"  font-color="red">{{tag}}</l-tag>
       </view>
     </view>
   </l-popup>

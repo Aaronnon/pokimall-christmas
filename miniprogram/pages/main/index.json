@@ -7,5 +7,6 @@
     "l-tag":"/miniprogram_npm/lin-ui/tag/index",
     "l-notice-bar":"/miniprogram_npm/lin-ui/notice-bar/index"
 
-  }
+  },
+  "disableScroll": true
 }

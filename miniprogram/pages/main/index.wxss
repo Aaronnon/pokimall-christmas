@@ -120,43 +120,6 @@ page {
   }
 }
 
-
-@-webkit-keyframes bounce-left-right {
-  25% {
-    -webkit-transform: rotate(-20deg);
-  }
-
-  50% {
-    -webkit-transform: rotate(0deg)
-  }
-
-  75% {
-    -webkit-transform: rotate(20deg)
-  }
-
-  100% {
-    -webkit-transform: rotate(0deg)
-  }
-}
-
-@keyframes bounce-left-right {
-  25% {
-    transform: rotate(-40deg);
-  }
-
-  50% {
-    transform: rotate(40deg)
-  }
-
-  75% {
-    transform: rotate(20deg)
-  }
-
-  100% {
-    transform: rotate(-40deg)
-  }
-}
-
 .bottom-container {
   position: relative;
   width: 100%;
@@ -280,27 +243,28 @@ page {
   height: 882rpx;
 }
 
+.rewards .tag-class{
+  position: absolute;
+  top: 206rpx;
+  left: 150rpx;
+}
+
+.wish-text{
+  z-index: 50;
+  width: 240rpx;
+  height: 48rpx;
+  position: absolute;
+  /* background-color: aliceblue; */
+  top: 330rpx;
+  left: 230rpx;
+  /* left: 50%; */
+  /* margin-left: -130rpx; */
+}
+
+
 .rewards image {
   width: 100%;
   height: 100%;
-}
-
-.notice-container{
-  position: absolute;
-  top: 310rpx;
-  left: 52%;
-  margin-left: -150rpx;
-  width: 300rpx;
-  height: 200rpx;
-  /* background-color: #000; */
-}
-
-.notice-bar-content{
-  color: black !important;
-  font-weight: 1000;
-  background-color: transparent !important;
-  position: absolute;
-  width: 250rpx !important;
 }
 
 .content {
