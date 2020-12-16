@@ -1,7 +1,9 @@
 <!--miniprogram/pages/index.wxml-->
+
 <view class="container-main">
 
-  <l-progress l-class="progressLine" percent="20" stroke-width='30' border-radius='16' active-color="red"></l-progress>
+  <l-progress l-class="progressLine" show-info="{{true}}" percent="{{progressPercent}}" stroke-width='30'
+    border-radius='16' active-color="red"></l-progress>
   <view class="pic-container">
 
 
@@ -28,12 +30,16 @@
       <image bind:tap="onClickRules"
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules-btn.png?sign=bb5576b6d04e57c3e5f7a48258125f22&t=1607708935">
       </image>
-      <image bind:tap="onClickContent"
+      <image class="image-start"
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/start-btn.png?sign=2da76960035adf2b895042203e4f2e02&t=1607708947">
       </image>
+      <view wx:if="{{status}}" bind:tap="onClickContent" class="view-start"></view>
+      <button wx:else plain="true" class="button-start" style="border:none" open-type="getUserInfo"
+        bindgetuserinfo="getUserInfo"></button>
       <image bind:tap="onClickRewards"
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/list-btn.png?sign=f834e8756ec8fd3192ca9c3cb5c8ce6c&t=1607708964">
       </image>
+
     </view>
   </view>
 
@@ -53,10 +59,15 @@
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards-list.png?sign=ddcde5c8d821006138b1e7e50e8a7db8&t=1607967394">
       </image>
       <view bind:tap="onClickClose" class="closeLock"></view>
+
+      <view class="notice-container">
+        <l-notice-bar l-class="notice-bar-content" show="{{true}}" type="roll">{{wish}}
+        </l-notice-bar>
+      </view>
+
     </view>
   </l-popup>
 
-  <!-- <l-popup show="{{clickContent}}"> -->
   <l-popup show="{{clickContent}}">
     <view class="content">
       <image
@@ -69,118 +80,38 @@
       </view>
       <view bind:tap="onClickClose" class="closeLock"></view>
       <view class="text-area">
-        <l-textarea l-class="l-text-area" l-inner-class="l-text" border="{{false}}" placeholder="说说你的愿望吧..." bind:linblur="clickValue"
-          fixed="{{true}}" maxlength="40"></l-textarea>
+        <l-textarea l-class="l-text-area" l-inner-class="l-text" border="{{false}}" placeholder="说说你的愿望吧..."
+          bind:linblur="clickValue" fixed="{{true}}" value="{{wish}}" maxlength="40"></l-textarea>
       </view>
       <view class="wechat-area">
-        <l-input  placeholder="请输入微信号" required="{{true}}" showRow="{{false}}" />
+        <l-input placeholder="请输入微信号" required="{{true}}" value="{{weChat}}" showRow="{{false}}"
+          bind:linblur="clickWechat" />
       </view>
       <view class="phone-area">
-        <l-input placeholder="请输入电话号码" required="{{true}}" showRow="{{false}}" />
+        <l-input placeholder="请输入电话号码" required="{{true}}" value="{{phone}}" showRow="{{false}}"
+          bind:linblur="clickPhone" />
       </view>
+    </view>
+  </l-popup>
+  <l-popup show="{{clickContentDone}}">
+    <view class="fail-wish">
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/fail.png?sign=a3a737730f7fb414e7abba99716d002c&t=1608077845">
+      </image>
+      <view bind:tap="onClickClose" class="closeLock"></view>
+
     </view>
   </l-popup>
 
   <l-popup show="{{clickDone}}">
     <view class="done-img">
-      <image 
+      <image
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/success.png?sign=e6120b87bbed1fe2369d47eb83be52df&t=1607979341">
       </image>
       <view bind:tap="onClickClose" class="closeLock"></view>
+      <view class="tag-class">
+        <l-tag plain="{{true}}" select="{{true}}" font-color="red">{{tag}}</l-tag>
+      </view>
     </view>
-
   </l-popup>
-
-  <view class="snow-container">
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-    <div class="snow"></div>
-
-  </view>
 </view>

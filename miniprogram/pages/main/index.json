@@ -3,6 +3,9 @@
     "l-popup":"/miniprogram_npm/lin-ui/popup/index",
     "l-progress":"/miniprogram_npm/lin-ui/progress/index",
     "l-textarea":"/miniprogram_npm/lin-ui/textarea/index",
-    "l-input":"/miniprogram_npm/lin-ui/input/index"
+    "l-input":"/miniprogram_npm/lin-ui/input/index",
+    "l-tag":"/miniprogram_npm/lin-ui/tag/index",
+    "l-notice-bar":"/miniprogram_npm/lin-ui/notice-bar/index"
+
   }
 }
