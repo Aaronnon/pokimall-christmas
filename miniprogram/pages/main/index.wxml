@@ -1,10 +1,16 @@
-<!--miniprogram/pages/index.wxml-->
-
-<view class="container-main">
-
+<view class="container-main ">
+  <view class="container-main1"></view>
+  <view class="container-main2"></view>
+  <view class="image-top">
+    <image
+      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/main-top.jpg?sign=a8429e7916139d802aeba59604bbe86a&t=1608173543">
+    </image>
+  </view>
 
   <view class="progressLine cu-progress round striped active">
-    <view class="bg-red" style="width:{{progressPercent}}%;">{{progressPercent}}%</view>
+    <view class="bg-red" style="width:{{progressPercent}}%;">
+      {{progressPercent}}%
+    </view>
   </view>
   <view class="exp-container">
     <text>*愿望被实现的几率，取决于用户分享次数而堆积的经验值*</text>
@@ -12,10 +18,16 @@
 
   <view class="pic-container">
 
+    <view class="wished-content-container" style="animation-name:{{upAnimation}}">
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/a.png?sign=347813feab94cb3ff4ac446debfc0166&t=1607707263">
+      </image>
+      <view class="content-container">
+        <view class="wished-content">愿:hahahhahahaa</view>
+      </view>
 
-    <image style="animation-name:{{upAnimation}}"
-      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/a.png?sign=347813feab94cb3ff4ac446debfc0166&t=1607707263">
-    </image>
+    </view>
+
     <image style="animation-name:{{upAnimation1}}"
       src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/b.png?sign=88f8b26b92c7905c7c506be3b866cb5c&t=1607707292">
     </image>
@@ -26,6 +38,11 @@
   </view>
 
   <view class="bottom-container">
+    <view class="wish-container">
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/wish-image.png?sign=3e54b882f5103a932daaa83ca6e3cf90&t=1608173020">
+      </image>
+    </view>
     <view class="arrow-container">
       <image class="arrow"
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/arrow.png?sign=ac082de1c65195d85096ceda5de8ae1f&t=1607709606">
@@ -76,7 +93,6 @@
           src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/contact.png?sign=90aed036522163e10b1781bed9967d08&t=1608135729">
         </image>
         <button plain="none" open-type="contact"></button>
-
       </view>
     </view>
   </l-popup>
@@ -112,14 +128,16 @@
         <image
           src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/share-btn.png?sign=a4133faf945052e299a9dc1256d70568&t=1608155027">
         </image>
-        <button plain="none" style="border:none" open-type="share" bind:tap="onShare"></button>
+        <button plain="none" open-type="share" style="border:none" bind:tap="onShare"></button>
       </view>
     </view>
   </l-popup>
 
   <l-popup show="{{clickShare}}">
     <view class="share-info">
-      <image src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/share.png?sign=3418c3256c3b9b2b4452f3bcad68173a&t=1608157824"></image>
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/share.png?sign=3418c3256c3b9b2b4452f3bcad68173a&t=1608157824">
+      </image>
       <view bind:tap="onClickCloseShare" class="closeLock"></view>
       <view class="progressLine cu-progress round striped active">
         <view class="bg-red" style="width:{{progressPercent}}%;">{{progressPercent}}%</view>
@@ -135,6 +153,13 @@
       <view bind:tap="onClickCloseDone" class="closeLock"></view>
       <view class="tag-class">
         <text user-select="true" font-color="red">{{tag}}</text>
+      </view>
+      <view class="contact-container1">
+        <image
+          src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/contact.png?sign=90aed036522163e10b1781bed9967d08&t=1608135729">
+        </image>
+        <button plain="none" open-type="contact"></button>
+
       </view>
     </view>
   </l-popup>

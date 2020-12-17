@@ -17,16 +17,17 @@ Page({
     clickContent: false,
     clickContentDone: false,
     clickDone: false,
-    clickShare:false,
+    clickShare: false,
     progressPercent: 0,
     status: false,
     wish: '',
     weChat: '',
     phone: '',
     tag: '',
-    upAnimation:'',
-    upAnimation1:'',
-    upAnimation2:''
+    upAnimation: '',
+    upAnimation1: '',
+    upAnimation2: '',
+    wishes:'',
   },
 
   /**
@@ -42,10 +43,11 @@ Page({
     setTimeout(function () {
       that.setData({
         loading: true,
-        upAnimation:'upAnimation',
-        upAnimation1:'upAnimation1',
-        upAnimation2:'upAnimation2'
+        upAnimation: 'upAnimation',
+        upAnimation1: 'upAnimation1',
+        upAnimation2: 'upAnimation2'
       })
+
     }, 500)
     wx.downloadFile({
       url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules.png?sign=18f849511dce8b4d72ba8e58a6479132&t=1607717183',
@@ -113,6 +115,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+
     wx.cloud.callFunction({
       name: 'login',
       data: {}
@@ -133,6 +136,7 @@ Page({
         }
       })
     })
+
 
   },
 
@@ -156,10 +160,11 @@ Page({
   onUnload: function () {
 
   },
-  onShare(){
+  onShare() {
+
     this.setData({
-      clickContentDone:false,
-      clickShare:true
+      clickContentDone: false,
+      clickShare: true
     })
   },
 
@@ -168,7 +173,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    const newProgress = this.data.progressPercent + Number(0.1)
+    const newProgress = this.data.progressPercent + Number(5)
     const newProgressStr = newProgress.toString()
     const index = newProgressStr.indexOf('.')
     const result = Number(newProgressStr.slice(0, index + 3))
@@ -185,6 +190,31 @@ Page({
   },
 
   onClickRules() {
+    const _ = db.command
+
+    
+
+    db.collection('users').where({
+      _wishRound: 0
+    }).get({
+      success: function (res) {
+        const allWishes =[]
+        const length = res.data.length
+        for(var i =0;i <length;i++){
+          // console.log(res.data[i]._wish)
+         allWishes.push(res.data[i]._wish)
+         
+        }
+        
+        
+        console.log(allWishes)
+        console.log(this.data.progressPercent)
+      }
+      
+    })
+
+
+
     const path = wx.getStorageSync('rules_preview')
     if (path != null) {
       this.setData({
@@ -197,6 +227,7 @@ Page({
   },
 
   onClickRewards() {
+    
     const path = wx.getStorageSync('rewards_preview')
     if (path != null) {
       this.setData({
@@ -209,6 +240,8 @@ Page({
   },
 
   onClickContent() {
+
+
 
     const path = wx.getStorageSync('contents_preview')
     if (path != null) {
@@ -263,6 +296,7 @@ Page({
   },
 
   confirmContert() {
+
     if (this.data.weChat != '') {
       const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       // var arr = [...str]
@@ -293,13 +327,12 @@ Page({
         clickDone: true,
         tag: tmpJoin
       })
-
     }
 
   },
-  onClickCloseShare(){
+  onClickCloseShare() {
     this.setData({
-      clickShare:false
+      clickShare: false
     })
   },
 

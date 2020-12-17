@@ -5,28 +5,65 @@
 page {
   background-repeat: no-repeat;
   overflow: hidden;
-  background-image: url(https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/bgmain.jpg?sign=6156f927b6e4f367aa3b69252be3522e&t=1608157593);
+  background-color: black;
   background-size: 100% 100%;
 }
 
 .container-main {
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  background-image: url(https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/BG.jpg?sign=d117147530554af1c210d5012369725d&t=1608165153);
 }
 
+.container-main1 {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/fire.gif?sign=0e25b5451e88090425829ee6ce81a144&t=1608165405);
+  mix-blend-mode: lighten;
+}
+
+.container-main2 {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/1608167541421.gif?sign=7b9b86b7dbe56eb5b1252a243dc579e9&t=1608167833);
+  mix-blend-mode: lighten;
+}
+
+.image-top {
+  width: 750rpx;
+  height: 125rpx;
+  z-index: 7;
+}
+
+.image-top image {
+  width: 100%;
+  height: 100%;
+}
 
 .progressLine {
   position: absolute !important;
-  top: 140rpx;
+  top: 124rpx;
   width: 100% !important;
   z-index: 99;
 }
 
 .progressLine view {
   color: black;
+
+}
+
+.bg-red {
+  padding-left: 20rpx !important;
 }
 
 .exp-container {
@@ -39,7 +76,7 @@ page {
 .exp-container text {
   position: absolute;
   font-weight: bold;
-  top: 174rpx;
+  top: 40rpx;
   z-index: 6;
   color: aliceblue;
   font-size: 20rpx;
@@ -47,7 +84,6 @@ page {
 }
 
 .pic-container {
-  padding-top: 160rpx;
   position: relative;
   width: 100%;
   height: 100%;
@@ -56,14 +92,8 @@ page {
 }
 
 .pic-container image:nth-child(1) {
-  left: 108rpx;
-  position: absolute;
-  width: 212rpx;
-  height: 1054rpx;
-  transform-origin: top;
-  /* animation-timing-function: linear; */
-  -webkit-animation: 14s ease-in-out infinite;
-  animation: 14s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
 
 }
 
@@ -74,13 +104,12 @@ page {
   height: 858rpx;
   z-index: 2;
   transform-origin: top;
-  /* animation-timing-function: linear; */
   -webkit-animation: 18s ease-in-out infinite;
   animation: 18s ease-in-out infinite;
 }
 
 .pic-container image:nth-child(3) {
-  /* animation-timing-function: linear; */
+  z-index: 1;
   position: absolute;
   right: 40rpx;
   width: 212rpx;
@@ -159,7 +188,7 @@ page {
   }
 
   24% {
-    transform: rotate(6deg);
+    transform: rotate(10deg);
   }
 
   36% {
@@ -237,6 +266,16 @@ page {
   justify-content: flex-end;
 }
 
+.wish-container {
+  width: 188rpx;
+  height: 120rpx;
+}
+
+.wish-container image {
+  width: 100%;
+  height: 100%;
+}
+
 .arrow-container {
   margin-bottom: 70rpx;
   /* background-color: burlywood; */
@@ -294,17 +333,20 @@ page {
   margin-top: 22rpx;
   width: 244rpx;
   height: 142rpx;
+  z-index: 5;
 }
 
 .image-start {
   width: 172rpx;
   height: 164rpx;
+  z-index: 5;
 }
 
 .btn-container image:nth-child(4) {
   margin-top: 22rpx;
   width: 244rpx;
   height: 142rpx;
+  z-index: 5;
 }
 
 .view-start {
@@ -315,9 +357,11 @@ page {
   margin-left: -86rpx;
   width: 180rpx;
   height: 164rpx;
+  z-index: 6;
 }
 
 .button-start {
+  z-index: 6;
   position: absolute;
   top: 0;
   left: 50%;
@@ -370,7 +414,7 @@ page {
   font-size: 24rpx;
   position: absolute;
   bottom: 224rpx;
-  right:160rpx;
+  right: 160rpx;
 }
 
 .contact-container {
@@ -390,6 +434,30 @@ page {
 }
 
 .contact-container button {
+  position: absolute;
+  border: none !important;
+  top: 0;
+  width: 100% !important;
+  height: 100%;
+}
+
+.contact-container1 {
+  position: absolute;
+  bottom: 110rpx;
+  width: 236rpx;
+  height: 82rpx;
+  left: 50%;
+  margin-left: -158rpx;
+
+}
+
+.contact-container1 image {
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.contact-container1 button {
   position: absolute;
   border: none !important;
   top: 0;
@@ -418,11 +486,8 @@ page {
   width: 240rpx;
   height: 48rpx;
   position: absolute;
-  /* background-color: aliceblue; */
   top: 330rpx;
   left: 230rpx;
-  /* left: 50%; */
-  /* margin-left: -130rpx; */
 }
 
 
@@ -535,24 +600,77 @@ page {
   left: 50rpx;
 }
 
-.share-info{
+.share-info {
   width: 692rpx;
   height: 558rpx;
   position: relative;
 }
 
-.share-info .closeLock{
+.share-info .closeLock {
   left: 60rpx;
   top: 100rpx;
 }
-.share-info .progressLine{
+
+.share-info .progressLine {
   width: 400rpx !important;
   z-index: 99;
   top: 300rpx;
   left: 140rpx;
 }
 
-.share-info image{
+.share-info image {
   width: 100%;
   height: 100%;
+}
+
+.wished-content-container {
+  left: 108rpx;
+  position: absolute;
+  width: 212rpx;
+  height: 1054rpx;
+  z-index: 3;
+  transform-origin: top;
+  -webkit-animation: 14s ease-in-out infinite;
+  animation: 14s ease-in-out infinite;
+
+}
+
+.content-container {
+
+  position: absolute;
+  left: 26%;
+  bottom: 170rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 110rpx;
+  white-space: wrap;
+  height: 350rpx;
+
+}
+
+.wished-content {
+  -webkit-animation: fade-in 14s ease-in-out infinite;
+  animation: fade-in 4s ease-in-out infinite 0s 1;
+  text-orientation: upright;
+  width: 1.25em;
+  height: 1.25em;
+  overflow: hidden;
+  margin: 0 auto;
+
+  writing-mode: vertical-rl;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-weight: bolder;
+
+
+}
+
+@keyframes fade-in {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
 }
