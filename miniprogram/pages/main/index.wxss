@@ -97,7 +97,7 @@ page {
 
 }
 
-.pic-container image:nth-child(2) {
+.wished-content-container1 {
   position: absolute;
   left: 334rpx;
   width: 336rpx;
@@ -108,7 +108,7 @@ page {
   animation: 18s ease-in-out infinite;
 }
 
-.pic-container image:nth-child(3) {
+.wished-content-container2 {
   z-index: 1;
   position: absolute;
   right: 40rpx;
@@ -647,10 +647,35 @@ page {
   height: 350rpx;
 
 }
+.content-container1 {
+
+  background-color: blue;
+  position: absolute;
+  left: 26%;
+  bottom: 120rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 110rpx;
+  white-space: wrap;
+  height: 350rpx;
+
+}
+.content-container2 {
+
+  position: absolute;
+  left: 26%;
+  bottom: 170rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 110rpx;
+  white-space: wrap;
+  height: 350rpx;
+
+}
 
 .wished-content {
   -webkit-animation: fade-in 14s ease-in-out infinite;
-  animation: fade-in 4s ease-in-out infinite 0s 1;
+  animation: fade-in 4s ease-in-out infinite 1;
   text-orientation: upright;
   width: 1.25em;
   height: 1.25em;

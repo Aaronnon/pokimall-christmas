@@ -23,17 +23,32 @@
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/a.png?sign=347813feab94cb3ff4ac446debfc0166&t=1607707263">
       </image>
       <view class="content-container">
-        <view class="wished-content">愿:hahahhahahaa</view>
+        <view class="wished-content">愿:{{wish}}</view>
       </view>
 
     </view>
 
-    <image style="animation-name:{{upAnimation1}}"
-      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/b.png?sign=88f8b26b92c7905c7c506be3b866cb5c&t=1607707292">
-    </image>
-    <image style="animation-name:{{upAnimation2}}"
-      src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/c.png?sign=721522ac24d8fd05cf545c92c1601182&t=1607707297">
-    </image>
+    <view class="wished-content-container1" style="animation-name:{{upAnimation1}}">
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/b.png?sign=88f8b26b92c7905c7c506be3b866cb5c&t=1607707292">
+      </image>
+      <view class="content-container1">
+        <view class="wished-content">愿:{{wish}}</view>
+      </view>
+    </view>
+
+
+    <view class="wished-content-container2" style="animation-name:{{upAnimation2}}">
+      <image
+        src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/c.png?sign=721522ac24d8fd05cf545c92c1601182&t=1607707297">
+      </image>
+      <view class="content-container2">
+        <view class="wished-content">愿:{{wish}}</view>
+      </view>
+
+    </view>
+
+
 
   </view>
 
