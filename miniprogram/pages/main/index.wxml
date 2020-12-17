@@ -1,4 +1,8 @@
 <view class="container-main ">
+  <view style="display:{{display ? '' : 'none'}}" class="bg-white flex-sub radius shadow-lg">
+    <image src="https://image.weilanwl.com/gif/loading-white.gif" mode="aspectFit"
+      class="loading-pic gif-white response"></image>
+  </view>
   <view class="container-main1"></view>
   <view class="container-main2"></view>
   <view class="image-top">
@@ -7,7 +11,7 @@
     </image>
   </view>
 
-  <view class="progressLine cu-progress round striped active">
+  <view  style="display:{{display ? 'none' : ''}}" class="progressLine cu-progress round striped active">
     <view class="bg-red" style="width:{{progressPercent}}%;">
       {{progressPercent}}%
     </view>
@@ -33,7 +37,7 @@
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/b.png?sign=88f8b26b92c7905c7c506be3b866cb5c&t=1607707292">
       </image>
       <view class="content-container1">
-        <view class="wished-content">愿:{{wish}}</view>
+        <view class="wished-content1">愿:{{contents}}</view>
       </view>
     </view>
 
@@ -43,7 +47,7 @@
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/c.png?sign=721522ac24d8fd05cf545c92c1601182&t=1607707297">
       </image>
       <view class="content-container2">
-        <view class="wished-content">愿:{{wish}}</view>
+        <view class="wished-content2">愿:{{contents1}}</view>
       </view>
 
     </view>
@@ -53,7 +57,7 @@
   </view>
 
   <view class="bottom-container">
-    <view class="wish-container">
+    <view style="display:{{display ? 'none' : ''}}" class="wish-container">
       <image
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/wish-image.png?sign=3e54b882f5103a932daaa83ca6e3cf90&t=1608173020">
       </image>
@@ -178,4 +182,6 @@
       </view>
     </view>
   </l-popup>
+
+
 </view>

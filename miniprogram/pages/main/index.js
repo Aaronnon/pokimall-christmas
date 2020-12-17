@@ -27,7 +27,63 @@ Page({
     upAnimation: '',
     upAnimation1: '',
     upAnimation2: '',
-    wishes:'',
+    wishes: [],
+    contents: '',
+    contents1: '',
+    display: true,
+    gift: [{
+        barcode: 4901301375056,
+        name: 'KAO 花王果味口气清新漱口水'
+      },
+      {
+        barcode: 4975541027587,
+        name: 'CHARLEY 苹果葡萄发酵液浴盐入浴剂 40g'
+      },
+      {
+        barcode: 4997770096943,
+        name: 'Daiso 大创 ER胎盘素美白保湿乳液 120ml'
+      },
+      {
+        barcode: 4901417601452,
+        name: '【橄榄精华】Kracie 植物性滋润保湿洗面奶 130g'
+      },
+      {
+        barcode: 4991936383281,
+        name: 'HONYARADOH虹雅堂 柴犬香味玩偶'
+      },
+      {
+        barcode: 4582469492375,
+        name: 'Lavons Room Fragance 室内固体香薰芳香剂'
+      },
+      {
+        barcode: 8806325623984,
+        name: 'LION 狮王 抑菌杀菌温和清洁泡沫洗手液 沁悦花香型 250ml'
+      },
+      {
+        barcode: 8809479165874,
+        name: 'Duft & Doft 牡丹香氛滋润身体乳'
+      },
+      {
+        barcode: 4571889666800,
+        name: 'GIK PRP血清胶原蛋白面膜抽取式'
+      },
+      {
+        barcode: 4560119224699,
+        name: '【全身精油】Diane Bonheur 发、脸、身体三合一精油 100ml'
+      },
+      {
+        barcode: 4975541016765,
+        name: 'CHARLEY 滋润护手霜 cherry blossom/sweet flower/fresh butter'
+      },
+      {
+        barcode: 8809542872043,
+        name: 'Merbliss 限量红宝石 红润密集滋养活力面膜'
+      },
+      {
+        barcode: 8809480651557,
+        name: 'Angel Looka 冰淇凌甜筒身体乳'
+      }
+    ]
   },
 
   /**
@@ -115,6 +171,20 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    const _ = db.command
+    db.collection('users').where({
+      _wishRound: 0
+    }).get().then(res => {
+      this.setData({
+        wishes: res.data
+      });
+      var num = Math.ceil(Math.random() * (this.data.wishes.length) - 1);
+      var num1 = Math.ceil(Math.random() * (this.data.wishes.length) - 1);
+      this.setData({
+        contents: this.data.wishes[num]._wish,
+        contents1: this.data.wishes[num1]._wish
+      })
+    })
 
     wx.cloud.callFunction({
       name: 'login',
@@ -134,7 +204,13 @@ Page({
             tag: app.userInfo._tag
           })
         }
-      })
+      }).then((res => {
+        setTimeout(() => {
+          this.setData({
+            display: false
+          })
+        }, 1000);
+      }))
     })
 
 
@@ -190,31 +266,6 @@ Page({
   },
 
   onClickRules() {
-    const _ = db.command
-
-    
-
-    db.collection('users').where({
-      _wishRound: 0
-    }).get({
-      success: function (res) {
-        const allWishes =[]
-        const length = res.data.length
-        for(var i =0;i <length;i++){
-          // console.log(res.data[i]._wish)
-         allWishes.push(res.data[i]._wish)
-         
-        }
-        
-        
-        console.log(allWishes)
-        console.log(this.data.progressPercent)
-      }
-      
-    })
-
-
-
     const path = wx.getStorageSync('rules_preview')
     if (path != null) {
       this.setData({
@@ -227,7 +278,7 @@ Page({
   },
 
   onClickRewards() {
-    
+
     const path = wx.getStorageSync('rewards_preview')
     if (path != null) {
       this.setData({
@@ -240,9 +291,6 @@ Page({
   },
 
   onClickContent() {
-
-
-
     const path = wx.getStorageSync('contents_preview')
     if (path != null) {
       this.setData({
@@ -298,6 +346,10 @@ Page({
   confirmContert() {
 
     if (this.data.weChat != '') {
+      var num = Math.ceil(Math.random() * (this.data.gift.length)-1);
+      console.log(num);
+      console.log(this.data.gift.length);
+
       const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       // var arr = [...str]
       const tmp = [];
@@ -319,7 +371,8 @@ Page({
           _tag: tmpJoin,
           _phone: this.data.phone,
           _weChat: this.data.weChat,
-          _wish: this.data.wish
+          _wish: this.data.wish,
+          _gift:this.data.gift[num]
         }
       })
       this.setData({
@@ -376,6 +429,7 @@ Page({
           _weChat: '',
           _phone: '',
           _tag: '',
+          _gift:[],
           joinTime: new Date(),
         }
       }).then((res) => {
