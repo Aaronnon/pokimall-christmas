@@ -209,7 +209,7 @@ Page({
           this.setData({
             display: false
           })
-        }, 1000);
+        }, 2500);
       }))
     })
 
@@ -346,9 +346,9 @@ Page({
   confirmContert() {
 
     if (this.data.weChat != '') {
-      var num = Math.ceil(Math.random() * (this.data.gift.length)-1);
-      console.log(num);
-      console.log(this.data.gift.length);
+
+      var num = Math.ceil(Math.random() * (this.data.gift.length) - 1);
+      const winGift = this.data.gift[num]
 
       const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       // var arr = [...str]
@@ -372,7 +372,7 @@ Page({
           _phone: this.data.phone,
           _weChat: this.data.weChat,
           _wish: this.data.wish,
-          _gift:this.data.gift[num]
+          _gift: winGift
         }
       })
       this.setData({
@@ -429,7 +429,7 @@ Page({
           _weChat: '',
           _phone: '',
           _tag: '',
-          _gift:[],
+          _gift: {},
           joinTime: new Date(),
         }
       }).then((res) => {
