@@ -3,7 +3,9 @@
     "l-popup":"/miniprogram_npm/lin-ui/popup/index",
     "l-textarea":"/miniprogram_npm/lin-ui/textarea/index",
     "l-input":"/miniprogram_npm/lin-ui/input/index",
-    "l-tag":"/miniprogram_npm/lin-ui/tag/index"
+    "l-tag":"/miniprogram_npm/lin-ui/tag/index",
+    "l-toast":"/miniprogram_npm/lin-ui/tag/index"
+    
   },
   "disableScroll": true
 }

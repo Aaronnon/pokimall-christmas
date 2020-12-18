@@ -1,4 +1,4 @@
-/* miniprogram/pages/index.wxss */
+
 @import '/colorui/main';
 @import '/colorui/icon';
 
@@ -59,7 +59,6 @@ page {
   position: absolute !important;
   top: 124rpx;
   width: 100% !important;
-  /* display: none; */
   z-index: 10;
 }
 
@@ -76,7 +75,6 @@ page {
   position: relative;
   display: flex;
   justify-content: center;
-  /* width: 400rpx; */
 }
 
 .exp-container text {
@@ -284,7 +282,6 @@ page {
 
 .arrow-container {
   margin-bottom: 70rpx;
-  /* background-color: burlywood; */
   z-index: 4;
   width: 47rpx;
   height: 47rpx;
@@ -390,7 +387,6 @@ page {
 
 .closeLock {
   z-index: 5;
-  /* background-color: #000; */
   position: absolute;
   height: 90rpx;
   width: 90rpx;
@@ -419,8 +415,8 @@ page {
   color: red;
   font-size: 24rpx;
   position: absolute;
-  bottom: 224rpx;
-  right: 160rpx;
+  bottom: 260rpx;
+  right: 270rpx;
 }
 
 .contact-container {
@@ -497,11 +493,18 @@ page {
 }
 
 
-.rewards image {
+.reward-page {
   width: 100%;
   height: 100%;
 }
 
+.gift-item{
+  position: absolute;
+  bottom: 200rpx;
+  left: 118rpx;
+  width: 472rpx;
+  height: 134rpx;
+}
 .content {
   position: relative;
   width: 100%;
@@ -564,21 +567,25 @@ page {
 
 .done-img {
   position: relative;
+  width: 750rpx;
+  height: 564rpx;
+}
+
+
+.done-img>.closeLock {
+  position: absolute;
+  left: 70rpx;
+
+}
+
+.done-image {
   width: 100%;
   height: 100%;
 }
 
-.done-img>.closeLock {
-  position: absolute;
-  left: 50rpx;
-}
-
-.done-img image {
-  width: 682rpx;
-  height: 686rpx;
-}
-
 .tag-class {
+
+  z-index: 4;
   font-weight: 800;
   color: red;
   width: 100%;
@@ -670,7 +677,6 @@ page {
 }
 
 .content-container2 {
-  /* background-color: blue; */
   position: absolute;
   left: 22%;
   bottom: 44rpx;
