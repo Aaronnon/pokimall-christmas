@@ -1,14 +1,28 @@
 <view class="container-main ">
-  <view style="display:{{display ? '' : 'none'}}" class="bg-white flex-sub radius shadow-lg">
+  <!-- <view style="display:{{display ? '' : 'none'}}" class="bg-white flex-sub radius shadow-lg">
     <image src="https://image.weilanwl.com/gif/loading-white.gif" mode="aspectFit"
       class="loading-pic gif-white response"></image>
-  </view>
+  </view> -->
+
+  <l-loading
+  l-container-class="l-container"
+  bg-color="#f3f3f3"
+  z-index="776"
+  opacity="1"
+  show="{{display}}"
+  full-screen="{{true}}"
+  custom="{{true}}"
+>
+  <image class="loading-img" src="../../image/toy.gif"></image>
+  <text class="loading-text">Loading...</text>
+</l-loading>
   <view class="container-main1"></view>
   <view class="container-main2"></view>
   <view class="image-top">
     <image
       src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/main-top.jpg?sign=a8429e7916139d802aeba59604bbe86a&t=1608173543">
     </image>
+ 
   </view>
 
   <view style="display:{{display ? 'none' : ''}}" class="progressLine cu-progress round striped active">

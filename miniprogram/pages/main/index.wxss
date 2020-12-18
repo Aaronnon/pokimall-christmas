@@ -8,6 +8,28 @@ page {
   background-color: black;
   background-size: 100% 100%;
 }
+.loading-img{
+  width: 284rpx;
+  height: 313rpx;
+}
+
+.loading-text{
+  font-family: 'Times New Roman', Times, serif;
+  position: absolute;
+  bottom: 600rpx;
+  left: 50%;
+  animation: fade 3s infinite linear;
+}
+
+@keyframes fade {
+  0% {
+      opacity: 0
+  }
+
+  100% {
+      opacity: 1
+  }
+}
 
 .container-main {
   background-repeat: no-repeat;

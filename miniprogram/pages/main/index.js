@@ -30,67 +30,67 @@ Page({
     display: true,
     giftUrl: '',
     gift: [{
-        barcode: 4901301375056,
+        barcode: '4901301375056',
         name: 'KAO 花王果味口气清新漱口水',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/1.jpg?sign=87f6c8069f9614d1a7e4ae38705aa681&t=1608267412'
       },
       {
-        barcode: 4975541027587,
+        barcode: '4975541027587',
         name: 'CHARLEY 苹果葡萄发酵液浴盐入浴剂 40g',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/2.jpg?sign=525dbf14e38462279831223b02e5092a&t=1608267491'
       },
       {
-        barcode: 4997770096943,
+        barcode: '4997770096943',
         name: 'Daiso 大创 ER胎盘素美白保湿乳液 120ml',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/3.jpg?sign=219c0612bf402356aa1f0fded19916da&t=1608267511'
       },
       {
-        barcode: 4901417601452,
+        barcode: '4901417601452',
         name: '【橄榄精华】Kracie 植物性滋润保湿洗面奶 130g',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/4.jpg?sign=c7f40f437d77f957dddfd74b4d4848c5&t=1608267572'
       },
       {
-        barcode: 4991936383281,
+        barcode: '4991936383281',
         name: 'HONYARADOH虹雅堂 柴犬香味玩偶',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/5.jpg?sign=3412e8811848ce0d6bf54311fe580b23&t=1608267583'
       },
       {
-        barcode: 4582469492375,
+        barcode: '4582469492375',
         name: 'Lavons Room Fragance 室内固体香薰芳香剂',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/6.jpg?sign=705ce193d7f48ab07e64101d09d014b0&t=1608267603'
       },
       {
-        barcode: 8806325623984,
+        barcode: '8806325623984',
         name: 'LION 狮王 抑菌杀菌温和清洁泡沫洗手液 沁悦花香型 250ml',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/7.jpg?sign=3e49ca2513bdebbf456801d688a80d2d&t=1608267617'
       },
       {
-        barcode: 8809479165874,
+        barcode: '8809479165874',
         name: 'Duft & Doft 牡丹香氛滋润身体乳',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/8.jpg?sign=48ae919cd2458eb642a17b9e3a4297ec&t=1608267629'
       },
       {
-        barcode: 4571889666800,
+        barcode: '4571889666800',
         name: 'GIK PRP血清胶原蛋白面膜抽取式',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/9.jpg?sign=1f8528afe434b06bb6d99df28c3d6755&t=1608267643'
       },
       {
-        barcode: 4560119224699,
+        barcode: '4560119224699',
         name: '【全身精油】Diane Bonheur 发、脸、身体三合一精油 100ml',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/10.jpg?sign=d650bc3d12933ea174352559069adebb&t=1608267666'
       },
       {
-        barcode: 4975541016765,
+        barcode: '4975541016765',
         name: 'CHARLEY 滋润护手霜 cherry blossom/sweet flower/fresh butter',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/11.jpg?sign=f52c64d49de8f04f52c17e5e8a6ee9f5&t=1608267686'
       },
       {
-        barcode: 8809542872043,
+        barcode: '8809542872043',
         name: 'Merbliss 限量红宝石 红润密集滋养活力面膜',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/12.jpg?sign=7f0af96fcd8e86192362a839623fa454&t=1608267701'
       },
       {
-        barcode: 8809480651557,
+        barcode: '8809480651557',
         name: 'Angel Looka 冰淇凌甜筒身体乳',
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/13.jpg?sign=ee8ceb3cd3d0bc0b02aaaece853e002f&t=1608267712'
       }
@@ -308,10 +308,6 @@ Page({
   handleContact() {
     wx.cloud.callFunction({
       name: 'reply' // 名字和云函数名字对应
-    }).then(res => {
-      console.log(res)
-    }).catch(err => {
-      console.error(err)
     })
   },
 
@@ -375,6 +371,8 @@ Page({
       var num = Math.ceil(Math.random() * (this.data.gift.length) - 1);
       const winGift = this.data.gift[num]
       const newGiftUrl = winGift.url
+      const newGiftBarcode = winGift.barcode
+      const newGiftName = winGift.name
 
       const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       // var arr = [...str]
@@ -399,7 +397,10 @@ Page({
           _weChat: this.data.weChat,
           _wish: this.data.wish,
           _gift: winGift,
-          _giftUrl: newGiftUrl
+          _giftName:newGiftName,
+          _giftBarcode:newGiftBarcode,
+          _giftUrl: newGiftUrl,
+          joinTime:new Date()
         }
       })
       this.setData({
@@ -459,8 +460,10 @@ Page({
           _phone: '',
           _tag: '',
           _gift: {},
+          _giftName:'',
+          _giftBarcode:'',
           _giftUrl: '',
-          joinTime: new Date(),
+          joinTime: '',
         }
       }).then((res) => {
         db.collection('users').doc(res._id).get().then((res) => {
