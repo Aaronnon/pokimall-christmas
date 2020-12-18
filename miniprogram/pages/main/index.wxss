@@ -450,7 +450,6 @@ page {
   height: 82rpx;
   left: 50%;
   margin-left: -158rpx;
-
 }
 
 .contact-container1 image {
@@ -465,6 +464,7 @@ page {
   top: 0;
   width: 100% !important;
   height: 100%;
+  z-index: 10;
 }
 
 .share-btn {
@@ -577,6 +577,7 @@ page {
   left: 70rpx;
 
 }
+
 
 .done-image {
   width: 100%;

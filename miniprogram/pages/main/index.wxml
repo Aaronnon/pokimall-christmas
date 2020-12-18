@@ -181,7 +181,7 @@
         <image
           src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/contact.png?sign=90aed036522163e10b1781bed9967d08&t=1608135729">
         </image>
-        <button plain="none" open-type="contact" bindcontact="handleContact"></button>
+        <button plain="none"  open-type="contact" bindcontact="handleContact"></button>
 
       </view>
     </view>
