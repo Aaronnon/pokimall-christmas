@@ -189,7 +189,7 @@
       </image>
       <view bind:tap="onClickCloseDone" class="closeLock"></view>
       <view class="tag-class">
-        <text user-select="true" font-color="red">cxcw31</text>
+        <text user-select="true" font-color="red">{{tag}}</text>
       </view>
       <view class="contact-container1">
         <image
