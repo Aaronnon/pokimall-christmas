@@ -90,7 +90,7 @@ page {
 }
 
 .bg-red {
-  padding-left: 20rpx !important;
+  padding-left: 50rpx !important;
 }
 
 .exp-container {
@@ -98,11 +98,28 @@ page {
   display: flex;
   justify-content: center;
 }
+.text-3{
+  position: absolute;
+  /* background-color: aquamarine; */
+  bottom: 160rpx;
+  left: 60rpx;
+  font-size: 19rpx;
+  font-weight: bold;
+}
 
-.exp-container text {
+.exp-container .text-1 {
   position: absolute;
   font-weight: bold;
   top: 40rpx;
+  z-index: 6;
+  color: aliceblue;
+  font-size: 20rpx;
+  letter-spacing: 0.5rpx;
+}
+.exp-container .text-2 {
+  position: absolute;
+  font-weight: bold;
+  top: 66rpx;
   z-index: 6;
   color: aliceblue;
   font-size: 20rpx;
@@ -651,7 +668,7 @@ page {
   width: 400rpx !important;
   z-index: 99;
   top: 300rpx;
-  left: 140rpx;
+  left: 110rpx;
 }
 
 .share-info image {
@@ -712,11 +729,11 @@ page {
 }
 
 .wished-content {
-  -webkit-animation: fade-in 10s linear infinite;
-  animation: fade-in 10s linear infinite 1;
+  /* -webkit-animation: fade-in 10s linear infinite;
+  animation: fade-in 10s linear infinite 1; */
   text-orientation: upright;
   width: 1.25em;
-  height: 1.25em;
+  height: 100%;
   overflow: hidden;
   margin: 0 auto;
 

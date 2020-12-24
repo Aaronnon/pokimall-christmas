@@ -27,11 +27,12 @@
 
   <view style="display:{{display ? 'none' : ''}}" class="progressLine cu-progress round striped active">
     <view class="bg-red" style="width:{{progressPercent}}%;">
-      {{progressPercent}}%
+      exp+{{progressPercent}}%
     </view>
   </view>
   <view class="exp-container">
-    <text>*愿望被实现的几率，取决于用户分享次数而堆积的经验值*</text>
+    <text class="text-1">*愿望被实现的几率，取决于用户分享次数而堆积的经验值*</text>
+    <text class="text-2">*当达到100%时，被选中的几率为最大，但不代表必定被选中*</text>
   </view>
 
   <view class="pic-container">
@@ -115,7 +116,7 @@
         {{wish}}
       </scroll-view>
       <view class="progressLine cu-progress round striped active">
-        <view class="bg-red" style="width:{{progressPercent}}%;">{{progressPercent}}%</view>
+        <view class="bg-red" style="width:{{progressPercent}}%;">exp+{{progressPercent}}%</view>
       </view>
 
       <image class="reward-page" src="{{rewardsPageImg}}">
@@ -175,8 +176,9 @@
       </image>
       <view bind:tap="onClickCloseShare" class="closeLock"></view>
       <view class="progressLine cu-progress round striped active">
-        <view class="bg-red" style="width:{{progressPercent}}%;">{{progressPercent}}%</view>
+        <view class="bg-red" style="width:{{progressPercent}}%;">exp+{{progressPercent}}%</view>
       </view>
+      <text class="text-3">*当达到100%时，被选中的几率为最大，但不代表必定被选中*</text>
     </view>
   </l-popup>
 

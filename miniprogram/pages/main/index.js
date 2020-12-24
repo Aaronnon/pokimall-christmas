@@ -30,9 +30,9 @@ Page({
     display: true,
     giftUrl: '',
     gift: [{
-        barcode: '4901301375056',
-        name: 'KAO 花王果味口气清新漱口水',
-        url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/1.jpg?sign=87f6c8069f9614d1a7e4ae38705aa681&t=1608267412'
+        barcode: '8809479165874',
+        name: 'Duft & Doft 牡丹香氛滋润身体乳',
+        url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/8.jpg?sign=48ae919cd2458eb642a17b9e3a4297ec&t=1608267629'
       },
       {
         barcode: '4975541027587',
@@ -65,9 +65,9 @@ Page({
         url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/7.jpg?sign=3e49ca2513bdebbf456801d688a80d2d&t=1608267617'
       },
       {
-        barcode: '8809479165874',
-        name: 'Duft & Doft 牡丹香氛滋润身体乳',
-        url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/8.jpg?sign=48ae919cd2458eb642a17b9e3a4297ec&t=1608267629'
+        barcode: '4901301375056',
+        name: 'KAO 花王果味口气清新漱口水',
+        url: 'https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rewards/compressed/1.jpg?sign=87f6c8069f9614d1a7e4ae38705aa681&t=1608267412'
       },
       {
         barcode: '4571889666800',
@@ -262,20 +262,37 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    const newProgress = this.data.progressPercent + Number(5)
-    const newProgressStr = newProgress.toString()
-    const index = newProgressStr.indexOf('.')
-    const result = Number(newProgressStr.slice(0, index + 3))
+    if (this.data.progressPercent < 95) {
+      console.log(this.data.progressPercent);
+      const newProgress = this.data.progressPercent + Number(5)
+      const newProgressStr = newProgress.toString()
+      const index = newProgressStr.indexOf('.')
+      const result = Number(newProgressStr.slice(0, index + 3))
 
-    const result1 = Number(result.toFixed(1))
-    this.setData({
-      progressPercent: result1
-    })
-    db.collection('users').doc(app.userInfo._id).update({
-      data: {
-        _percent: result1
-      }
-    })
+      const result1 = Number(result.toFixed(1))
+      this.setData({
+        progressPercent: result1
+      })
+
+
+      db.collection('users').doc(app.userInfo._id).update({
+        data: {
+          _percent: result1
+        }
+      })
+    } else {
+      this.setData({
+        progressPercent: 100
+      })
+      db.collection('users').doc(app.userInfo._id).update({
+        data: {
+          _percent: 100
+        }
+      })
+
+    }
+
+
   },
 
   onClickRules() {
@@ -366,7 +383,7 @@ Page({
 
   confirmContert() {
 
-    if (this.data.weChat != '') {
+    if (this.data.weChat.length != 0 && this.data.phone != 0 && this.data.wish != 0) {
 
       var num = Math.ceil(Math.random() * (this.data.gift.length) - 1);
       const winGift = this.data.gift[num]
@@ -393,14 +410,14 @@ Page({
         data: {
           _wishRound: 0,
           _tag: tmpJoin,
-          _phone: this.data.phone,
-          _weChat: this.data.weChat,
+          _phone: this.data.phone.trim(),
+          _weChat: this.data.weChat.trim(),
           _wish: this.data.wish,
           _gift: winGift,
-          _giftName:newGiftName,
-          _giftBarcode:newGiftBarcode,
+          _giftName: newGiftName,
+          _giftBarcode: newGiftBarcode,
           _giftUrl: newGiftUrl,
-          joinTime:new Date()
+          joinTime: new Date()
         }
       })
       this.setData({
@@ -460,8 +477,8 @@ Page({
           _phone: '',
           _tag: '',
           _gift: {},
-          _giftName:'',
-          _giftBarcode:'',
+          _giftName: '',
+          _giftBarcode: '',
           _giftUrl: '',
           joinTime: '',
         }
