@@ -263,7 +263,6 @@ Page({
    */
   onShareAppMessage: function () {
     if (this.data.progressPercent < 95) {
-      console.log(this.data.progressPercent);
       const newProgress = this.data.progressPercent + Number(5)
       const newProgressStr = newProgress.toString()
       const index = newProgressStr.indexOf('.')

@@ -4,25 +4,18 @@
       class="loading-pic gif-white response"></image>
   </view> -->
 
-  <l-loading
-  l-container-class="l-container"
-  bg-color="#f3f3f3"
-  z-index="776"
-  opacity="1"
-  show="{{display}}"
-  full-screen="{{true}}"
-  custom="{{true}}"
->
-  <image class="loading-img" src="../../image/toy.gif"></image>
-  <text class="loading-text">Loading...</text>
-</l-loading>
+  <l-loading l-container-class="l-container" bg-color="#f3f3f3" z-index="776" opacity="1" show="{{display}}"
+    full-screen="{{true}}" custom="{{true}}">
+    <image class="loading-img" src="../../image/toy.gif"></image>
+    <text class="loading-text">Loading...</text>
+  </l-loading>
   <view class="container-main1"></view>
   <view class="container-main2"></view>
   <view class="image-top">
     <image
       src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/main-top.jpg?sign=a8429e7916139d802aeba59604bbe86a&t=1608173543">
     </image>
- 
+
   </view>
 
   <view style="display:{{display ? 'none' : ''}}" class="progressLine cu-progress round striped active">
@@ -85,7 +78,7 @@
       <image bind:tap="onClickRules"
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/rules-btn.png?sign=bb5576b6d04e57c3e5f7a48258125f22&t=1607708935">
       </image>
-      
+
       <image class="image-start"
         src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/start-btn.png?sign=2da76960035adf2b895042203e4f2e02&t=1607708947">
       </image>
@@ -134,29 +127,13 @@
   </l-popup>
 
   <l-popup show="{{clickContent}}">
-    <view class="content">
-      <image src="{{contentsPageImg}}">
-      </image>
-      <view class="done-btn" bind:tap="confirmContert">
-        <image
-          src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/done-btn.png?sign=c1b14bbf677750f3d9c8fbd7607dad8a&t=1607973829">
-        </image>
-      </view>
-      <view bind:tap="onClickCloseContent" class="closeLock"></view>
-      <view class="text-area">
-        <l-textarea l-class="l-text-area" l-inner-class="l-text" border="{{false}}" placeholder="说说你的愿望吧..."
-          bind:linblur="clickValue" fixed="{{true}}" maxlength="40"></l-textarea>
-      </view>
-      <view class="wechat-area">
-        <l-input placeholder="请输入微信号" required="{{true}}" showRow="{{false}}" bind:linblur="clickWechat" />
-      </view>
-      <view class="phone-area">
-        <l-input placeholder="请输入电话号码" required="{{true}}" showRow="{{false}}" bind:linblur="clickPhone" />
-      </view>
-    </view>
+    <text class="end-text">活动已结束</text>
   </l-popup>
+
+
   <l-popup show="{{clickContentDone}}">
-    <view class="fail-wish">
+    <text class="end-text">活动已结束</text>
+    <!-- <view class="fail-wish">
       <image src="{{contentsDonePageImg}}">
       </image>
       <view bind:tap="onClickCloseContentDone" class="closeLock"></view>
@@ -166,7 +143,7 @@
         </image>
         <button plain="none" open-type="share" style="border:none" bind:tap="onShare"></button>
       </view>
-    </view>
+    </view> -->
   </l-popup>
 
   <l-popup show="{{clickShare}}">
@@ -197,11 +174,13 @@
         <image
           src="https://706f-poki-6gowbjzme643c931-1304496780.tcb.qcloud.la/christmas/contact.png?sign=90aed036522163e10b1781bed9967d08&t=1608135729">
         </image>
-        <button plain="none"  open-type="contact" bindcontact="handleContact"></button>
+        <button plain="none" open-type="contact" bindcontact="handleContact"></button>
 
       </view>
     </view>
   </l-popup>
 
 
+
 </view>
+<!-- <l-toast show="{{clickContent}}" title="这是一条基础提示框" /> -->

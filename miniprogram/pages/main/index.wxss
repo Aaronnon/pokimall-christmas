@@ -125,6 +125,12 @@ page {
   font-size: 20rpx;
   letter-spacing: 0.5rpx;
 }
+.end-text{
+  font-weight: bolder;
+  color: aliceblue;
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+}
 
 .pic-container {
   position: relative;
